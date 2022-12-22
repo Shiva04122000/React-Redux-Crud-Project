@@ -1,0 +1,34 @@
+{
+    "user":[
+        {
+            "id":"1",
+            "name":"Rahul",
+            "contact":"14575214580",
+            "email":"rahul@gmail.com"
+        },
+        {
+            "id":"2",
+            "name":"Suraj",
+            "contact":"7542348562",
+            "email":"suraj@gmail.com"
+        },
+        {
+            "id":"3",
+            "name":"Rutik",
+            "contact":"7965847563",
+            "email":"rutik@gmail.com"
+        },
+        {
+            "id":"4",
+            "name":"Sachin",
+            "contact":"7787854856",
+            "email":"sachin@gmail.com"
+        },
+        {
+            "id":"5",
+            "name":"Ganesh",
+            "contact":"1277899654",
+            "email":"ganesh@gmail.com"
+        }
+    ]
+}
