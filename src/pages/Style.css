@@ -7,9 +7,9 @@
   text-decoration: none;
 }
 .adduser-container {
-  margin-top: 3rem;
-  display: flex;
+  margin-top: 5%;
   justify-content: center;
+  display: flex;
 }
 .submit {
   display: flex;
@@ -24,11 +24,30 @@
   color: red;
 }
 
+.add-user-btn {
+  text-decoration: none;
+  display: flex;
+  margin: 1.5rem;
+  justify-content: center;
+}
+.table-container {
+  width: 85%;
+  margin: auto;
+}
+
 @media screen and (max-width: 1024px) {
   .adduser-container {
     margin-left: 20%;
     margin-top: 38%;
     flex-direction: column;
     display: flex;
+  }
+  .heading {
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 46px 0px 37px 0px;
+  }
+  .table-container {
+    width: 95%;
   }
 }
