@@ -1,7 +1,7 @@
 .heading {
   text-align: center;
   font-size: 2rem;
-  margin: 19px 0px 1px 0px;
+  margin: 0px 0px 1px 0px;
 }
 .link {
   text-decoration: none;
@@ -45,7 +45,7 @@
   .heading {
     text-align: center;
     font-size: 1.6rem;
-    margin: 46px 0px 37px 0px;
+    /* margin: 46px 0px 37px 0px; */
   }
   .table-container {
     width: 95%;

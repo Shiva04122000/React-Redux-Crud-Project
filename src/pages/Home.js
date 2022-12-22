@@ -53,7 +53,14 @@ const Home = () => {
     return (
         <>
             <div className='heading'>
-                This is React Redux CRUD Operation Project
+            <h2>Contact Dairy</h2>
+                
+            </div>
+            <div className='heading'>
+            <p>
+               ( This is React Redux CRUD Operation Project)
+            </p>
+                
             </div>
             <div >
                 <Link className='link add-user-btn' to='/add-user'>
