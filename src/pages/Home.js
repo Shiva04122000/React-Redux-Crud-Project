@@ -12,7 +12,7 @@ import './Style.css'
 import { deleteUsers, loadUsers } from '../redux/actions';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import {Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -53,14 +53,10 @@ const Home = () => {
     return (
         <>
             <div className='heading'>
-            <h2>Contact Dairy</h2>
-                
+                <h2>Contact Diary </h2>
             </div>
             <div className='heading'>
-            <p>
-               ( This is React Redux CRUD Operation Project)
-            </p>
-                
+                <p>( This is React Redux CRUD Operation Project)</p>
             </div>
             <div >
                 <Link className='link add-user-btn' to='/add-user'>
