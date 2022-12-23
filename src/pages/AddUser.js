@@ -15,14 +15,15 @@ const AddUser = () => {
     email: "",
     contact: ""
   })
-  
+
   const [error, setError] = useState("")
 
   const { name, email, contact } = state;
   const navigate = useNavigate();
   const dispach = useDispatch();
-  const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  var re = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var contactRegex = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+  var nameRegex = /^[A-Za-z]+$/;
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -32,7 +33,8 @@ const AddUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!name || !email || !contact || !res.test(email.toLowerCase()) || isNaN(contact) || !re.test(contact) || !isNaN(name)) {
+    if (!name || !email || !contact || !emailRegex.test(email.toLowerCase()) || isNaN(contact) || !contactRegex.test(contact) ||
+      !name.match(nameRegex)) {
       setError("Plz Fill the Correct Data");
     } else {
       dispach(addUser(state))

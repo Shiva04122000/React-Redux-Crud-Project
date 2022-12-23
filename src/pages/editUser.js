@@ -22,8 +22,9 @@ const EditUser = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.data)
-    const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var re = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var contactRegex = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
+    var nameRegex = /^[A-Za-z]+$/ ;
 
     const handleInputChange = (e) => {
         let { name, value } = e.target;
@@ -43,7 +44,7 @@ const EditUser = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!res.test(email.toLowerCase()) || isNaN(contact) || !re.test(contact) || !isNaN(name)) {
+        if (!emailRegex.test(email.toLowerCase()) || isNaN(contact) || !contactRegex.test(contact) || !isNaN(name) || !name.match(nameRegex)) {
             setError("Plz Fill the correct Data");
         } else {
             dispatch(updateUser(state, id))
