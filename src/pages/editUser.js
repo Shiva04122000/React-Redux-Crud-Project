@@ -44,7 +44,7 @@ const EditUser = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!emailRegex.test(email.toLowerCase()) || isNaN(contact) || !contactRegex.test(contact) || !isNaN(name) || !name.match(nameRegex)) {
+        if (!emailRegex.test(email.toLowerCase()) || isNaN(contact) || !contactRegex.test(contact) || !name.match(nameRegex)) {
             setError("Plz Fill the correct Data");
         } else {
             dispatch(updateUser(state, id))
