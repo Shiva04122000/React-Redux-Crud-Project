@@ -34,6 +34,18 @@ export const loadUsers=()=>{
     }
 }
 
+export const addUser=(user)=>{
+    return function (dispach){
+        axios.post(`https://63a30166471b38b20602fcf9.mockapi.io/redux-crud/`,user)
+        .then((res)=>{
+            console.log('Add User',res)
+            dispach(userAdded());
+            dispach(loadUsers())
+        })
+        .catch((error)=>console.log("api error",error))
+    }
+}
+
 export const deleteUsers=(id)=>{
     return function (dispach){
         axios.delete(`https://63a30166471b38b20602fcf9.mockapi.io/redux-crud/${id}`)
@@ -56,19 +68,6 @@ export const getSingleUser=(id)=>{
         .catch((error)=>console.log("api error",error))
     }
 }
-
-export const addUser=(user)=>{
-    return function (dispach){
-        axios.post(`https://63a30166471b38b20602fcf9.mockapi.io/redux-crud/`,user)
-        .then((res)=>{
-            console.log('Add User',res)
-            dispach(userAdded());
-            dispach(loadUsers())
-        })
-        .catch((error)=>console.log("api error",error))
-    }
-}
-
 export const updateUser=(user,id)=>{
     return function (dispach){
         axios.put(`https://63a30166471b38b20602fcf9.mockapi.io/redux-crud/${id}`,user)
@@ -80,3 +79,6 @@ export const updateUser=(user,id)=>{
         .catch((error)=>console.log("api error",error))
     }
 }
+
+
+

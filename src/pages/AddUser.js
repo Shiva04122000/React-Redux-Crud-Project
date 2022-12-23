@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { addUser, getSingleUser } from '../redux/actions';
+import { addUser } from '../redux/actions';
 import './Style.css'
 
 
@@ -15,11 +15,14 @@ const AddUser = () => {
     email: "",
     contact: ""
   })
+  
   const [error, setError] = useState("")
 
   const { name, email, contact } = state;
   const navigate = useNavigate();
   const dispach = useDispatch();
+  const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -29,8 +32,8 @@ const AddUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!name || !email || !contact) {
-      setError("Plz Fill the Complete Data");
+    if (!name || !email || !contact || !res.test(email.toLowerCase()) || isNaN(contact) || !re.test(contact) || !isNaN(name)) {
+      setError("Plz Fill the Correct Data");
     } else {
       dispach(addUser(state))
       navigate("/")

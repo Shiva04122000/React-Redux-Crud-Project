@@ -29,7 +29,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
     },
-    // hide last border
     '&:last-child td, &:last-child th': {
         border: 0,
     },
@@ -80,10 +79,7 @@ const Home = () => {
                                     <StyledTableCell component="th" scope="row">{user.name}</StyledTableCell>
                                     <StyledTableCell align="centre">{user.email}</StyledTableCell>
                                     <StyledTableCell align="centre">{user.contact}</StyledTableCell>
-                                    <Stack style={{ marginTop: "8px" }}
-                                        direction="row"
-                                        spacing={2}
-                                    >
+                                    <Stack style={{ marginTop: "8px" }} direction="row" spacing={2}>
                                         <Button onClick={() => navigate(`./edit-user/${user.id}`)} style={{ marginRight: "1px" }} variant="contained" color="primary">Edit</Button>
                                         <Button onClick={() => handleDelete(user.id)} variant="contained" color="error">Delete</Button>
                                     </Stack>
